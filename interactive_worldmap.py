@@ -15,7 +15,7 @@ server = Flask(__name__)
 app = dash.Dash(__name__, server=server, suppress_callback_exceptions=True)
 
 # Load the dataset
-df = pd.read_csv("C:/Users/cccar/Downloads/ds4200_project_co2_data.csv")
+df = pd.read_csv("ds4200_project_co2_data.csv")
 
 valid_country_codes = [country.alpha_3 for country in pycountry.countries]
 df = df[df['iso_code'].isin(valid_country_codes)]
