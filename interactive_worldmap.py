@@ -67,6 +67,8 @@ def update_map(selected_data):
     )
     return fig
 
+fig.write_html("interactive_map.html", include_plotlyjs="cdn")
+
 # Route to serve the HTML file
 @server.route('/')
 def index():
