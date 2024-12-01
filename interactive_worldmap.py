@@ -7,6 +7,7 @@ from dash.dependencies import Input, Output
 import pycountry
 from flask import Flask, send_from_directory
 
+
 # Initialize the Flask server
 server = Flask(__name__)
 
@@ -67,4 +68,11 @@ def update_map(selected_data):
     )
     return fig
 
-fig.write_html("interactive_map.html", include_plotlyjs="cdn")
+# Route to serve the HTML file
+@server.route('/')
+def index():
+    return send_from_directory(os.getcwd(), 'interactive_worldmap.html')
+
+# Run the app
+if __name__ == "__main__":
+    app.run_server(debug=True)
