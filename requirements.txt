@@ -1,0 +1,6 @@
+dash
+flask
+pandas
+plotly
+pycountry
+gunicorn
