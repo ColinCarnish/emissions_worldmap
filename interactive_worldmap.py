@@ -68,12 +68,3 @@ def update_map(selected_data):
     return fig
 
 fig.write_html("interactive_map.html", include_plotlyjs="cdn")
-
-# Route to serve the HTML file
-@server.route('/')
-def index():
-    return send_from_directory(os.getcwd(), 'interactive_worldmap.html')
-
-# Run the app
-if __name__ == "__main__":
-    app.run_server(debug=True)
