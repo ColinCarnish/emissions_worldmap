@@ -55,13 +55,14 @@ app.layout = html.Div([
     [Input("data-dropdown", "value")]
 )
 def update_map(selected_data):
+    tableau_colorscale = make_colorscale(px.colors.qualitative.Tableau)
     fig = px.choropleth(
         df,
         locations="iso_code",
         color=selected_data, 
         hover_name="country",
         animation_frame="year",
-        color_continuous_scale="matter",
+        color_continuous_scale=tableau_colorscale,
         title=f"{selected_data.replace('_', ' ').title()} by Country Over Time",
         projection="natural earth",
         range_color=[df[selected_data].min(), df[selected_data].max() * .75]
